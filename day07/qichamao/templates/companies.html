@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8">
+</head>
+<body>
+
+    <h1>公司总记录数：{{ total_count }}</h1>
+
+
+<table border="1">
+    <tr><th>公司名</th><th>联系人</th><th>联系电话</th><th>联系邮箱</th></tr>
+    {% for item in companies %}
+    <tr>
+        <td>{{ item.CompanyName }}</td>
+        <td>{{ item.c_name }}</td>
+        <td>{{ item.c_phone }}</td>
+        <td>{{ item.c_email }}</td>
+    </tr>
+
+    {% endfor %}
+
+</table>
+<div><a href="/companies?page={{ prev_page }}" {% if curr_page == 1 %} style="display:none;" {% endif %} >上一页</a>&nbsp; 
+    <a href="/companies?page={{ next_page }}" {% if curr_page == page_count %} style="display:none;" {% endif %} >下一页</a>
+
+&nbsp;第{{ curr_page }}页 / 共{{ page_count }}页
+</div>
+
+</body>
+</html>
