@@ -20,4 +20,6 @@ from qicha.views import *
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('companies/', companies),
+    path('report/', report),
+    path('report_data/', report_data),
 ]

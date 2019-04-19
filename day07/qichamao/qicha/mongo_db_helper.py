@@ -5,6 +5,14 @@ client = pymongo.MongoClient()
 
 db = client['qichamao']
 
+db2 = client['u17-1']
+
+
+def get_comics():
+	result = db2.comic.find({})
+	return result
+
+
 def insert_company(item):
 	db.company.insert_one(item)
 
