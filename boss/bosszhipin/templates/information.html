@@ -2,9 +2,43 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>python</title>
 </head>
 <body>
-$END$
+	<h2>共有{{ total_information }}个python职位信息</h2>
+    <table border="1">
+        <tr>
+            <th>职位名称</th>
+            <th>薪资</th>
+            <th>城市</th>
+            <th>经验要求</th>
+            <th>学历要求</th>
+            <th>公司名称</th>
+            <th>公司类型</th>
+            <th>公司资本</th>
+            <th>公司规模</th>
+            <th>职位详情页面</th>
+        </tr>
+        {% for item in content %}
+        <tr>
+            <td>{{ item.job_title }}</td>
+            <td>{{ item.salary }}</td>
+            <td>{{ item.city }}</td>
+            <td>{{ item.experience }}</td>
+            <td>{{ item.education }}</td>
+            <td>{{ item.company_title }}</td>
+            <td>{{ item.company_type }}</td>
+            <td>{{ item.company_capital }}</td>
+            <td>{{ item.company_scale }}</td>
+            <td>{{ item.job_detail }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <div>
+        <a href="/information?page={{ prev_page }}" {% if curr_page == 1 %} style="display: none;" {% endif %}>上一页</a>
+        <a href="/information?page={{ next_page }}" {% if curr_page == total_page %} style="display: none;" {% endif %}>下一页</a>
+        &nbsp;现在是第{{ curr_page }}页，共有{{ total_page }}页
+    </div>
+
 </body>
 </html>
